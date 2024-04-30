@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MyForm</class>
+ <widget class="QWidget" name="MyForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>353</width>
+    <height>190</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MyForm</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Text:                </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="MyLineEdit" name="lineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Text Retallat: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="MyQLabel" name="Texto_Salida">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>67</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QSlider" name="horizontalSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">MyLineEdit.h</header>
+   <slots>
+    <signal>returnPressed(QString)</signal>
+    <slot>tractaReturn()</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>MyQLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">MyQLabel.h</header>
+   <slots>
+    <slot>GuardaTexto(QString)</slot>
+    <slot>TruncaTexto(int)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MyForm</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>287</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>328</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>tractaReturn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>106</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>17</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Texto_Salida</receiver>
+   <slot>GuardaTexto(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>305</x>
+     <y>13</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>325</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>Texto_Salida</receiver>
+   <slot>TruncaTexto(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>181</x>
+     <y>57</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
