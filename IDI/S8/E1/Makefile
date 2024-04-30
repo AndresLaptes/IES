@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Bloc3_Exemple1.0.0
-DISTDIR = /dades/andres.lucian.laptes/Documents/IDI/S8/.tmp/Bloc3_Exemple1.0.0
+DISTDIR = /dades/andres.lucian.laptes/Documents/IDI/S8/E1/.tmp/Bloc3_Exemple1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) /usr/lib64/libQt5OpenGL.so /usr/lib64/libQt5Widgets.so /usr/lib64/libQt5Gui.so /usr/lib64/libQt5Core.so -lGL -lpthread   
@@ -207,7 +207,7 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib64/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib64/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
+		../.qmake.stash \
 		/usr/lib64/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib64/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib64/qt5/mkspecs/features/default_pre.prf \
@@ -385,7 +385,7 @@ Makefile: Bloc3_Exemple.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib
 		/usr/lib64/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib64/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib64/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
+		../.qmake.stash \
 		/usr/lib64/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib64/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib64/qt5/mkspecs/features/default_pre.prf \
@@ -547,7 +547,7 @@ Makefile: Bloc3_Exemple.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib
 /usr/lib64/qt5/mkspecs/features/qt_config.prf:
 /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib64/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
+../.qmake.stash:
 /usr/lib64/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib64/qt5/mkspecs/features/toolchain.prf:
 /usr/lib64/qt5/mkspecs/features/default_pre.prf:
@@ -595,7 +595,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -627,20 +626,20 @@ moc_MyForm.cpp: MyForm.h \
 		/home2/users/alumnes/1289953/Documents/IDI/Model/model.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /dades/andres.lucian.laptes/Documents/IDI/S8/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/dades/andres.lucian.laptes/Documents/IDI/S8 -I/usr/include/glm -I/home2/users/alumnes/1289953/Documents/IDI/Model -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include MyForm.h -o moc_MyForm.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /dades/andres.lucian.laptes/Documents/IDI/S8/E1/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/dades/andres.lucian.laptes/Documents/IDI/S8/E1 -I/usr/include/glm -I/home2/users/alumnes/1289953/Documents/IDI/Model -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include MyForm.h -o moc_MyForm.cpp
 
 moc_BL3GLWidget.cpp: BL3GLWidget.h \
 		/home2/users/alumnes/1289953/Documents/IDI/Model/model.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /dades/andres.lucian.laptes/Documents/IDI/S8/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/dades/andres.lucian.laptes/Documents/IDI/S8 -I/usr/include/glm -I/home2/users/alumnes/1289953/Documents/IDI/Model -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include BL3GLWidget.h -o moc_BL3GLWidget.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /dades/andres.lucian.laptes/Documents/IDI/S8/E1/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/dades/andres.lucian.laptes/Documents/IDI/S8/E1 -I/usr/include/glm -I/home2/users/alumnes/1289953/Documents/IDI/Model -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include BL3GLWidget.h -o moc_BL3GLWidget.cpp
 
 moc_MyGLWidget.cpp: MyGLWidget.h \
 		BL3GLWidget.h \
 		/home2/users/alumnes/1289953/Documents/IDI/Model/model.h \
 		moc_predefs.h \
 		/usr/lib64/qt5/bin/moc
-	/usr/lib64/qt5/bin/moc $(DEFINES) --include /dades/andres.lucian.laptes/Documents/IDI/S8/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/dades/andres.lucian.laptes/Documents/IDI/S8 -I/usr/include/glm -I/home2/users/alumnes/1289953/Documents/IDI/Model -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include MyGLWidget.h -o moc_MyGLWidget.cpp
+	/usr/lib64/qt5/bin/moc $(DEFINES) --include /dades/andres.lucian.laptes/Documents/IDI/S8/E1/moc_predefs.h -I/usr/lib64/qt5/mkspecs/linux-g++ -I/dades/andres.lucian.laptes/Documents/IDI/S8/E1 -I/usr/include/glm -I/home2/users/alumnes/1289953/Documents/IDI/Model -I/usr/include/qt5 -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I/usr/include/c++/7 -I/usr/include/c++/7/x86_64-suse-linux -I/usr/include/c++/7/backward -I/usr/lib64/gcc/x86_64-suse-linux/7/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include MyGLWidget.h -o moc_MyGLWidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

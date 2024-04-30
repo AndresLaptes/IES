@@ -13,7 +13,7 @@ uniform mat4 view;
 uniform mat4 TG;
 
 // Valors per als components que necessitem del focus de llum
-vec3 colorFocus = vec3(0.8, 0.8, 0.8);
+vec3 colFocus = vec3(0.8, 0.8, 0.8);
 vec3 llumAmbient = vec3(0.2, 0.2, 0.2);
 vec3 posFocus = vec3(1, 1, 1);  // en SCA
 
@@ -31,6 +31,19 @@ vec3 Difus (vec3 NormSCO, vec3 L, vec3 colFocus)
     // Càlcul component difusa, si n'hi ha
     if (dot (L, NormSCO) > 0)
       colRes = colFocus * matdiff * dot (L, NormSCO);
+    return (colRes);
+}
+
+vec3 Lambert (vec3 NormSCO, vec3 L) 
+{
+    // S'assumeix que els vectors que es reben com a paràmetres estan normalitzats
+
+    // Inicialitzem color a component ambient
+    vec3 colRes = llumAmbient * matamb;
+
+    // Afegim component difusa, si n'hi ha
+    if (dot (L, NormSCO) > 0)
+      colRes = colRes + colFocus * matdiff * dot (L, NormSCO);
     return (colRes);
 }
 
@@ -57,6 +70,23 @@ vec3 Especular (vec3 NormSCO, vec3 L, vec4 vertSCO, vec3 colFocus)
 
 void main()
 {	
-    fcolor = matdiff;
+	  // Passar posicio del vertex a SCO
+	  vec3 vertSCO = (view * TG * vec4(vertex, 1.0)).xyz;
+	
+	  // Pasar posicio del focus de llum en SCO
+	  vec3 posF = (view * vec4(posFocus, 1.0)).xyz;
+	
+	  // Direccio llum
+	  vec3 L = posF - vertSCO;
+	
+	  // Passar vector normal a SCO
+	  mat3 NormalMatrix = (inverse(transpose(mat3(view * TG))));
+	  vec3 NM = NormalMatrix * normal;
+	
+	  // Nomes la Normal i la L son "vcectors", els unics que es normalitzen
+	  L = normalize(L);
+	  NM = normalize(NM);
+	
+    fcolor = Lambert(NM, L);
     gl_Position = proj * view * TG * vec4 (vertex, 1.0);
 }
